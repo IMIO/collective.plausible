@@ -8,7 +8,7 @@
 
   <browser:page
     name="plausible-view"
-    for="plone.base.interfaces.siteroot.IPloneSiteRoot"
+    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
     class=".plausible_view.PlausibleView"
     template="plausible_view.pt"
     permission="zope2.View"
