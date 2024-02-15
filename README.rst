@@ -2,15 +2,15 @@
    If you want to learn more about writing documentation, please check out: http://docs.plone.org/about/documentation_styleguide.html
    This text does not appear on PyPI or github. It is a comment.
 
-.. image:: https://github.com/collective/imio.plausible/actions/workflows/plone-package.yml/badge.svg
-    :target: https://github.com/collective/imio.plausible/actions/workflows/plone-package.yml
+.. image:: https://github.com/IMIO/imio.plausible/actions/workflows/plone-package.yml/badge.svg
+    :target: https://github.com/IMIO/imio.plausible/actions/workflows/plone-package.yml
 
-.. image:: https://coveralls.io/repos/github/collective/imio.plausible/badge.svg?branch=main
-    :target: https://coveralls.io/github/collective/imio.plausible?branch=main
+.. image:: https://coveralls.io/repos/github/IMIO/imio.plausible/badge.svg?branch=main
+    :target: https://coveralls.io/github/IMIO/imio.plausible?branch=main
     :alt: Coveralls
 
-.. image:: https://codecov.io/gh/collective/imio.plausible/branch/master/graph/badge.svg
-    :target: https://codecov.io/gh/collective/imio.plausible
+.. image:: https://codecov.io/gh/IMIO/imio.plausible/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/IMIO/imio.plausible
 
 .. image:: https://img.shields.io/pypi/v/imio.plausible.svg
     :target: https://pypi.python.org/pypi/imio.plausible/
@@ -36,20 +36,15 @@ Plausible integration into Plone 5 and Plone 6 classic UI
 Features
 --------
 
-- Can be bullet points
+- Plausible browserview
 
 
-Examples
---------
-
-This add-on can be seen in action at the following sites:
-- Is there a page on the internet where everybody can see the features?
 
 
 Documentation
 -------------
 
-Full documentation for end users can be found in the "docs" folder, and is also available online at http://docs.plone.org/foo/bar
+Full documentation for end users can be found in the "docs" folder.
 
 
 Translations
@@ -57,7 +52,8 @@ Translations
 
 This product has been translated into
 
-- Klingon (thanks, K'Plai)
+- English
+- French
 
 
 Installation
@@ -79,30 +75,28 @@ and then running ``bin/buildout``
 Authors
 -------
 
-Provided by awesome people ;)
+iMio
 
 
 Contributors
 ------------
 
-Put your name here, you deserve it!
-
-- ?
+- Rémi Dubois <remi.dubois@imio.be>
+- Christophe Boulanger <christophe.boulanger@imio.be>
 
 
 Contribute
 ----------
 
-- Issue Tracker: https://github.com/collective/imio.plausible/issues
-- Source Code: https://github.com/collective/imio.plausible
+- Issue Tracker: https://github.com/IMIO/imio.plausible/issues
+- Source Code: https://github.com/IMIO/imio.plausible
 - Documentation: https://docs.plone.org/foo/bar
 
 
 Support
 -------
 
-If you are having issues, please let us know.
-We have a mailing list located at: project@example.com
+If you are having issues, please let us know by submitting an issue on the issue tracker.
 
 
 License
