@@ -16,49 +16,49 @@ msgstr ""
 
 #: imio/plausible/controlpanels/plausible_control_panel/controlpanel.py:24
 msgid "Example : imio.be"
-msgstr ""
+msgstr "Exemple : imio.be"
 
 #: imio/plausible/controlpanels/plausible_control_panel/controlpanel.py:16
 msgid "Example : plausible.imio.be"
-msgstr ""
+msgstr "Exemple : plausible.imio.be"
 
 #: imio/plausible/configure.zcml:27
 msgid "Installs the imio.plausible add-on."
-msgstr ""
+msgstr "Installe le module imio.plausible."
 
 #: imio/plausible/controlpanels/plausible_control_panel/controlpanel.py:42
 #: imio/plausible/profiles/default/controlpanel.xml
 msgid "Plausible Control Panel"
-msgstr ""
+msgstr "Panneau de configuration Plausible"
 
 #: imio/plausible/controlpanels/plausible_control_panel/controlpanel.py:23
 msgid "Plausible Site"
-msgstr ""
+msgstr "Site Plausible"
 
 #: imio/plausible/controlpanels/plausible_control_panel/controlpanel.py:15
 msgid "Plausible URL"
-msgstr ""
+msgstr "URL de l'instance Plausible"
 
 #: imio/plausible/views/plausible_view.pt:43
 msgid "Plausible analytics is not set"
-msgstr ""
+msgstr "Plausible analytics n'est pas configuré"
 
 #: imio/plausible/controlpanels/plausible_control_panel/controlpanel.py:32
 msgid "Plausible authentification token"
-msgstr ""
+msgstr "Token d'authentification Plausible"
 
 #: imio/plausible/controlpanels/plausible_control_panel/controlpanel.py:31
 msgid "Plausible token"
-msgstr ""
+msgstr "Token Plausible"
 
 #: imio/plausible/configure.zcml:36
 msgid "Uninstalls the imio.plausible add-on."
-msgstr ""
+msgstr "Désinstalle le module imio.plausible."
 
 #: imio/plausible/configure.zcml:27
 msgid "imio.plausible"
-msgstr ""
+msgstr "imio.plausible"
 
 #: imio/plausible/configure.zcml:36
 msgid "imio.plausible (uninstall)"
-msgstr ""
+msgstr "imio.plausible (désinstallation)"
