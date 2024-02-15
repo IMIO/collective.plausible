@@ -5,11 +5,7 @@
 .. image:: https://github.com/IMIO/imio.plausible/actions/workflows/plone-package.yml/badge.svg
     :target: https://github.com/IMIO/imio.plausible/actions/workflows/plone-package.yml
 
-.. image:: https://coveralls.io/repos/github/IMIO/imio.plausible/badge.svg?branch=main
-    :target: https://coveralls.io/github/IMIO/imio.plausible?branch=main
-    :alt: Coveralls
-
-.. image:: https://codecov.io/gh/IMIO/imio.plausible/branch/master/graph/badge.svg
+.. image:: https://codecov.io/gh/IMIO/imio.plausible/graph/badge.svg?token=28881WG157
     :target: https://codecov.io/gh/IMIO/imio.plausible
 
 .. image:: https://img.shields.io/pypi/v/imio.plausible.svg
