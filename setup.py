@@ -16,7 +16,7 @@ long_description = "\n\n".join(
 
 setup(
     name="collective.plausible",
-    version="1.0a2",
+    version="1.0a3.dev0",
     description="Plausible integration into Plone 5 and Plone 6 classic UI",
     long_description=long_description,
     # Get more from https://pypi.org/classifiers/
