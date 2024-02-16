@@ -23,9 +23,9 @@
     :alt: License
 
 
-==============
+====================
 collective.plausible
-==============
+====================
 
 Plausible integration into Plone 5 and Plone 6 classic UI
 
