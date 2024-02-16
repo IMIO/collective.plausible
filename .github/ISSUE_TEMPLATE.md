@@ -1,4 +1,4 @@
-* imio.plausible version:
+* collective.plausible version:
 * Plone Version:
 * Python version:
 * Operating System: Linux

@@ -1,5 +1,5 @@
 ==============
-imio.plausible
+collective.plausible
 ==============
 
 User documentation

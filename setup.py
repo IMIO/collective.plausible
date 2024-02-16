@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Installer for the imio.plausible package."""
+"""Installer for the collective.plausible package."""
 
 from setuptools import find_packages
 from setuptools import setup
@@ -15,7 +15,7 @@ long_description = "\n\n".join(
 
 
 setup(
-    name="imio.plausible",
+    name="collective.plausible",
     version="1.0a2.dev0",
     description="Plausible integration into Plone 5 and Plone 6 classic UI",
     long_description=long_description,
@@ -36,12 +36,12 @@ setup(
     keywords="Python Plone CMS",
     author="remdub",
     author_email="remi.dubois@imio.be",
-    url="https://github.com/IMIO/imio.plausible",
+    url="https://github.com/IMIO/collective.plausible",
     project_urls={
-        "PyPI": "https://pypi.org/project/imio.plausible/",
-        "Source": "https://github.com/IMIO/imio.plausible",
-        "Tracker": "https://github.com/IMIO/imio.plausible/issues",
-        # 'Documentation': 'https://imio.plausible.readthedocs.io/en/latest/',
+        "PyPI": "https://pypi.org/project/collective.plausible/",
+        "Source": "https://github.com/IMIO/collective.plausible",
+        "Tracker": "https://github.com/IMIO/collective.plausible/issues",
+        # 'Documentation': 'https://collective.plausible.readthedocs.io/en/latest/',
     },
     license="GPL version 2",
     packages=find_packages("src", exclude=["ez_setup"]),
@@ -72,6 +72,6 @@ setup(
     [z3c.autoinclude.plugin]
     target = plone
     [console_scripts]
-    update_locale = imio.plausible.locales.update:update_locale
+    update_locale = collective.plausible.locales.update:update_locale
     """,
 )

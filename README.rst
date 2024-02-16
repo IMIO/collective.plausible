@@ -2,29 +2,29 @@
    If you want to learn more about writing documentation, please check out: http://docs.plone.org/about/documentation_styleguide.html
    This text does not appear on PyPI or github. It is a comment.
 
-.. image:: https://github.com/IMIO/imio.plausible/actions/workflows/plone-package.yml/badge.svg
-    :target: https://github.com/IMIO/imio.plausible/actions/workflows/plone-package.yml
+.. image:: https://github.com/IMIO/collective.plausible/actions/workflows/plone-package.yml/badge.svg
+    :target: https://github.com/IMIO/collective.plausible/actions/workflows/plone-package.yml
 
-.. image:: https://codecov.io/gh/IMIO/imio.plausible/graph/badge.svg?token=28881WG157
-    :target: https://codecov.io/gh/IMIO/imio.plausible
+.. image:: https://codecov.io/gh/IMIO/collective.plausible/graph/badge.svg?token=28881WG157
+    :target: https://codecov.io/gh/IMIO/collective.plausible
 
-.. image:: https://img.shields.io/pypi/v/imio.plausible.svg
-    :target: https://pypi.python.org/pypi/imio.plausible/
+.. image:: https://img.shields.io/pypi/v/collective.plausible.svg
+    :target: https://pypi.python.org/pypi/collective.plausible/
     :alt: Latest Version
 
-.. image:: https://img.shields.io/pypi/status/imio.plausible.svg
-    :target: https://pypi.python.org/pypi/imio.plausible
+.. image:: https://img.shields.io/pypi/status/collective.plausible.svg
+    :target: https://pypi.python.org/pypi/collective.plausible
     :alt: Egg Status
 
-.. image:: https://img.shields.io/pypi/pyversions/imio.plausible.svg?style=plastic   :alt: Supported - Python Versions
+.. image:: https://img.shields.io/pypi/pyversions/collective.plausible.svg?style=plastic   :alt: Supported - Python Versions
 
-.. image:: https://img.shields.io/pypi/l/imio.plausible.svg
-    :target: https://pypi.python.org/pypi/imio.plausible/
+.. image:: https://img.shields.io/pypi/l/collective.plausible.svg
+    :target: https://pypi.python.org/pypi/collective.plausible/
     :alt: License
 
 
 ==============
-imio.plausible
+collective.plausible
 ==============
 
 Plausible integration into Plone 5 and Plone 6 classic UI
@@ -55,14 +55,14 @@ This product has been translated into
 Installation
 ------------
 
-Install imio.plausible by adding it to your buildout::
+Install collective.plausible by adding it to your buildout::
 
     [buildout]
 
     ...
 
     eggs =
-        imio.plausible
+        collective.plausible
 
 
 and then running ``bin/buildout``
@@ -84,8 +84,8 @@ Contributors
 Contribute
 ----------
 
-- Issue Tracker: https://github.com/IMIO/imio.plausible/issues
-- Source Code: https://github.com/IMIO/imio.plausible
+- Issue Tracker: https://github.com/IMIO/collective.plausible/issues
+- Source Code: https://github.com/IMIO/collective.plausible
 - Documentation: https://docs.plone.org/foo/bar
 
 

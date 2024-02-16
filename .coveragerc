@@ -1,6 +1,6 @@
 [report]
 include =
-    src/imio/*
+    src/collective/*
 omit =
     */test*
     */upgrades/*

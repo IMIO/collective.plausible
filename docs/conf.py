@@ -42,7 +42,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'imio.plausible'
+project = u'collective.plausible'
 copyright = u'remdub (remdub)'
 author = u'remdub (remdub)'
 
@@ -199,7 +199,7 @@ html_static_path = ['_static']
 #html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'imio.plausibledoc'
+htmlhelp_basename = 'collective.plausibledoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
