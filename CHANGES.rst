@@ -5,7 +5,8 @@ Changelog
 1.0a2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Rename package to collective.plausible
+  [remdub]
 
 
 1.0a1 (2024-02-15)
