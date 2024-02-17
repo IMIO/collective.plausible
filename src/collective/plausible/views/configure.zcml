@@ -15,4 +15,13 @@
     layer="collective.plausible.interfaces.ICollectivePlausibleLayer"
     />
 
+  <browser:page
+    name="plausible-utils"
+    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+    class=".plausible_utils.PlausibleUtilsView"
+    permission="zope2.View"
+    allowed_attributes="is_plausible_set add_link_user_action"
+    layer="collective.plausible.interfaces.ICollectivePlausibleLayer"
+    />
+
 </configure>

@@ -42,7 +42,9 @@
 
   <!-- -*- extra stuff goes here -*- -->
 
-    <include package=".controlpanels" />
+  <include package=".upgrades" />
+
+  <include package=".controlpanels" />
 
 
   <include package=".views" />

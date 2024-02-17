@@ -35,6 +35,14 @@ class IPlausibleControlPanel(Interface):
         readonly=False,
     )
 
+    link_user_action = schema.Bool(
+        title=_("Add a link in the user menu"),
+        description=_("Add a link to the statistics browser view in the user menu"),
+        default=True,
+        required=False,
+        readonly=False,
+    )
+
 
 class PlausibleControlPanel(RegistryEditForm):
     schema = IPlausibleControlPanel

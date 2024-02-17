@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2024-02-15 06:02+0000\n"
+"POT-Creation-Date: 2024-02-17 11:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,51 +14,66 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: collective/plausible/controlpanels/plausible_control_panel/controlpanel.py:24
+#: ../controlpanels/plausible_control_panel/controlpanel.py:39
+#: ../upgrades/v1001.py:19
+msgid "Add a link in the user menu"
+msgstr ""
+
+#: ../controlpanels/plausible_control_panel/controlpanel.py:40
+#: ../upgrades/v1001.py:20
+msgid "Add a link to the statistics browser view in the user menu"
+msgstr ""
+
+#: ../controlpanels/plausible_control_panel/controlpanel.py:24
 msgid "Example : imio.be"
 msgstr ""
 
-#: collective/plausible/controlpanels/plausible_control_panel/controlpanel.py:16
+#: ../controlpanels/plausible_control_panel/controlpanel.py:16
 msgid "Example : plausible.imio.be"
 msgstr ""
 
-#: collective/plausible/configure.zcml:27
+#: ../configure.zcml:27
 msgid "Installs the collective.plausible add-on."
 msgstr ""
 
-#: collective/plausible/controlpanels/plausible_control_panel/controlpanel.py:42
-#: collective/plausible/profiles/default/controlpanel.xml
+#: ../controlpanels/plausible_control_panel/controlpanel.py:50
+#: ../profiles/default/controlpanel.xml
 msgid "Plausible Control Panel"
 msgstr ""
 
-#: collective/plausible/controlpanels/plausible_control_panel/controlpanel.py:23
+#: ../controlpanels/plausible_control_panel/controlpanel.py:23
 msgid "Plausible Site"
 msgstr ""
 
-#: collective/plausible/controlpanels/plausible_control_panel/controlpanel.py:15
+#: ../controlpanels/plausible_control_panel/controlpanel.py:15
 msgid "Plausible URL"
 msgstr ""
 
-#: collective/plausible/views/plausible_view.pt:43
+#: ../views/plausible_view.pt:43
 msgid "Plausible analytics is not set"
 msgstr ""
 
-#: collective/plausible/controlpanels/plausible_control_panel/controlpanel.py:32
+#: ../controlpanels/plausible_control_panel/controlpanel.py:32
 msgid "Plausible authentification token"
 msgstr ""
 
-#: collective/plausible/controlpanels/plausible_control_panel/controlpanel.py:31
+#: ../controlpanels/plausible_control_panel/controlpanel.py:31
 msgid "Plausible token"
 msgstr ""
 
-#: collective/plausible/configure.zcml:36
+#: ../profiles/default/actions.xml
+#: ../upgrades/1001/actions.xml
+msgid "Statistics"
+msgstr ""
+
+#: ../configure.zcml:36
 msgid "Uninstalls the collective.plausible add-on."
 msgstr ""
 
-#: collective/plausible/configure.zcml:27
+#: ../configure.zcml:27
 msgid "collective.plausible"
 msgstr ""
 
-#: collective/plausible/configure.zcml:36
+#: ../configure.zcml:36
 msgid "collective.plausible (uninstall)"
 msgstr ""
