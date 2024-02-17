@@ -5,7 +5,8 @@ Changelog
 1.0a3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add an optional link to statistics browserview in user menu
+  [remdub]
 
 
 1.0a2 (2024-02-16)
