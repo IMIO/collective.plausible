@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0a3 (unreleased)
+1.0a3 (2024-02-20)
 ------------------
 
 - Add an optional link to statistics browserview in user menu
