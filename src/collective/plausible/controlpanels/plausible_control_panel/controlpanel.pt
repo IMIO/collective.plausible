@@ -1,0 +1,82 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/prefs_main_template/macros/master"
+      i18n:domain="plone">
+
+<body>
+<style>
+    .card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgba(0, 0, 0, .125);
+        border-radius: .25rem;
+        margin-bottom: 1em;
+    }
+    .card-header {
+        padding: .5rem 1rem;
+        margin-bottom: 0;
+        background-color: rgba(0, 0, 0, .03);
+        border-bottom: 1px solid rgba(0, 0, 0, .125);
+    }
+    .card-body {
+        flex: 1 1 auto;
+        padding: 1rem 1rem;
+    }
+</style>
+<div metal:fill-slot="prefs_configlet_main">
+
+    <h1 class="documentFirstHeading" tal:content="view/label">View Title</h1>
+
+    <div metal:use-macro="context/global_statusmessage/macros/portal_message">
+      Portal status message
+    </div>
+
+    <div id="content-core">
+        <div class="card" tal:condition="here/@@plausible-utils/is_plausible_set">
+            <div class="card-header">
+                <span i18n:domain="collective.plausible" i18n:translate="">Configuration state</span>
+            </div>
+            <div class="card-body portalMessage warning" role="status" >
+                <span i18n:domain="collective.plausible" i18n:translate="">Plausible parameters are set (here or environment variables)</span>
+            </div>
+            <div class="card-header">
+                <span i18n:domain="collective.plausible" i18n:translate="">Plausible server healthcheck</span>
+            </div>
+            <div class="card-body portalMessage warning" role="status">
+                 <ul tal:condition="here/@@plausible-utils/get_plausible_instance_healthcheck">
+                    <li><span i18n:domain="collective.plausible" i18n:translate="">Clickhouse :&nbsp;</span><span tal:content="here/@@plausible-utils/get_plausible_instance_healthcheck/clickhouse" /></li>
+                    <li><span i18n:domain="collective.plausible" i18n:translate="">Postgresql :&nbsp;</span><span tal:content="here/@@plausible-utils/get_plausible_instance_healthcheck/clickhouse" /></li>
+                    <li><span i18n:domain="collective.plausible" i18n:translate="">Sites cache :&nbsp;</span><span tal:content="here/@@plausible-utils/get_plausible_instance_healthcheck/clickhouse" /></li>
+                 </ul>
+                 <span i18n:domain="collective.plausible" i18n:translate="" tal:condition="not: here/@@plausible-utils/get_plausible_instance_healthcheck">Error while trying to connect to Plausible API</span>
+            </div>
+        </div>
+        <div class="card" tal:condition="not: here/@@plausible-utils/is_plausible_set">
+            <div class="card-header">
+                <span i18n:domain="collective.plausible" i18n:translate="">Configuration state</span>
+            </div>
+            <div class="card-body portalMessage warning" role="status" >
+                <span i18n:domain="collective.plausible" i18n:translate="">Plausible parameters are not set yet. You can define it here or via environment variables.</span>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <span>Paramètres de Plausible</span>
+            </div>
+            <div id="layout-contents">
+                <span tal:replace="structure view/contents" />
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

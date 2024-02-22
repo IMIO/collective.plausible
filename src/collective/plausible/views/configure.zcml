@@ -20,7 +20,7 @@
     for="Products.CMFPlone.interfaces.IPloneSiteRoot"
     class=".plausible_utils.PlausibleUtilsView"
     permission="zope2.View"
-    allowed_attributes="is_plausible_set add_link_user_action"
+    allowed_attributes="is_plausible_set add_link_user_action get_plausible_instance_healthcheck"
     layer="collective.plausible.interfaces.ICollectivePlausibleLayer"
     />
 

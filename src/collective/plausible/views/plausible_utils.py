@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import requests
+
 from collective.plausible.utils import get_plausible_vars
 from zope.interface import Interface
 from plone import api
@@ -28,3 +30,12 @@ class PlausibleUtilsView(BrowserView):
             )
             else False
         )
+
+    @property
+    def get_plausible_instance_healthcheck(self):
+        vars = get_plausible_vars()
+        try:
+            response = requests.get(f"https://{vars['plausible_url']}/api/health")
+            return response.json()
+        except:
+            return False
