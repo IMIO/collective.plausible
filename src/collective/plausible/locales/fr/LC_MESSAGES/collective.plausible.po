@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2024-02-17 11:10+0000\n"
+"POT-Creation-Date: 2024-02-22 11:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,6 +23,18 @@ msgstr "Ajouter un lien dans le menu utilisateur"
 #: ../upgrades/v1001.py:20
 msgid "Add a link to the statistics browser view in the user menu"
 msgstr "Ajouter un lien vers la vue des statistiques dans le menu utilisateur"
+
+#: ../controlpanels/plausible_control_panel/controlpanel.pt:55
+msgid "Clickhouse :&nbsp;"
+msgstr "Clickouse :&nbsp;"
+
+#: ../controlpanels/plausible_control_panel/controlpanel.pt:45
+msgid "Configuration state"
+msgstr "Etat de la configuration"
+
+#: ../controlpanels/plausible_control_panel/controlpanel.pt:59
+msgid "Error while trying to connect to Plausible API"
+msgstr "Erreur lors de la tentative de connexion à l'API Plausible"
 
 #: ../controlpanels/plausible_control_panel/controlpanel.py:24
 msgid "Example : imio.be"
@@ -57,9 +69,29 @@ msgstr "Plausible analytics n'est pas configuré"
 msgid "Plausible authentification token"
 msgstr "Token d'authentification Plausible"
 
+#: ../controlpanels/plausible_control_panel/controlpanel.pt:67
+msgid "Plausible parameters are not set yet. You can define it here or via environment variables."
+msgstr "Les paramètres de Plausible n'ont pas encore été définis. Vous pouvez les définir ici ou via des variables d'environnement."
+
+#: ../controlpanels/plausible_control_panel/controlpanel.pt:48
+msgid "Plausible parameters are set (here or environment variables)"
+msgstr "Les paramètres de Plausible ont été définis (ici ou via des variables d'environnement)"
+
+#: ../controlpanels/plausible_control_panel/controlpanel.pt:51
+msgid "Plausible server healthcheck"
+msgstr "Etat du serveur Plausible"
+
 #: ../controlpanels/plausible_control_panel/controlpanel.py:31
 msgid "Plausible token"
 msgstr "Token Plausible"
+
+#: ../controlpanels/plausible_control_panel/controlpanel.pt:56
+msgid "Postgresql :&nbsp;"
+msgstr "Postgresql :&nbsp;"
+
+#: ../controlpanels/plausible_control_panel/controlpanel.pt:57
+msgid "Sites cache :&nbsp;"
+msgstr "Cache des sites :&nbsp;"
 
 #: ../profiles/default/actions.xml
 #: ../upgrades/1001/actions.xml

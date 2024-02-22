@@ -32,7 +32,9 @@ Plausible integration into Plone 5 and Plone 6 classic UI
 Features
 --------
 
-- Plausible browserview
+- Statistics browserview @@plausible-view
+- Optional link to statistics browserview in user menu
+- Plausible server healthcheck in control panel
 
 
 

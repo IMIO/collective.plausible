@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2024-02-17 11:10+0000\n"
+"POT-Creation-Date: 2024-02-22 11:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,6 +25,18 @@ msgstr ""
 #: ../controlpanels/plausible_control_panel/controlpanel.py:40
 #: ../upgrades/v1001.py:20
 msgid "Add a link to the statistics browser view in the user menu"
+msgstr ""
+
+#: ../controlpanels/plausible_control_panel/controlpanel.pt:55
+msgid "Clickhouse :&nbsp;"
+msgstr ""
+
+#: ../controlpanels/plausible_control_panel/controlpanel.pt:45
+msgid "Configuration state"
+msgstr ""
+
+#: ../controlpanels/plausible_control_panel/controlpanel.pt:59
+msgid "Error while trying to connect to Plausible API"
 msgstr ""
 
 #: ../controlpanels/plausible_control_panel/controlpanel.py:24
@@ -60,8 +72,28 @@ msgstr ""
 msgid "Plausible authentification token"
 msgstr ""
 
+#: ../controlpanels/plausible_control_panel/controlpanel.pt:67
+msgid "Plausible parameters are not set yet. You can define it here or via environment variables."
+msgstr ""
+
+#: ../controlpanels/plausible_control_panel/controlpanel.pt:48
+msgid "Plausible parameters are set (here or environment variables)"
+msgstr ""
+
+#: ../controlpanels/plausible_control_panel/controlpanel.pt:51
+msgid "Plausible server healthcheck"
+msgstr ""
+
 #: ../controlpanels/plausible_control_panel/controlpanel.py:31
 msgid "Plausible token"
+msgstr ""
+
+#: ../controlpanels/plausible_control_panel/controlpanel.pt:56
+msgid "Postgresql :&nbsp;"
+msgstr ""
+
+#: ../controlpanels/plausible_control_panel/controlpanel.pt:57
+msgid "Sites cache :&nbsp;"
 msgstr ""
 
 #: ../profiles/default/actions.xml

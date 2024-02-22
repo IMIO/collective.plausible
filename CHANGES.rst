@@ -5,7 +5,8 @@ Changelog
 1.0a4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add plausible server healthcheck into plausible control panel
+  [remdub]
 
 
 1.0a3 (2024-02-20)
