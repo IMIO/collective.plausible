@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from collective.plausible.views.plausible_utils import PlausibleUtilsView
 from collective.plausible.testing import COLLECTIVE_PLAUSIBLE_FUNCTIONAL_TESTING
+from collective.plausible.views.plausible_utils import PlausibleUtilsView
 from plone import api
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID

@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
-import requests
-
 from collective.plausible.utils import get_plausible_vars
-from zope.interface import Interface
 from plone import api
 from Products.Five.browser import BrowserView
 from zope.interface import implementer
+from zope.interface import Interface
+
+import requests
 
 
 # from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
