@@ -1,0 +1,3 @@
+<div class="plausible-snippet">
+    <script defer data-domain="${view/plausible_site}" src="https://${view/plausible_url}/js/script.js"></script>
+</div>
