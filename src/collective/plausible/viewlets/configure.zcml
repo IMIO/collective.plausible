@@ -8,7 +8,7 @@
 
   <browser:viewlet
      name="plausible-snippet-viewlet"
-     for="plone.app.contenttypes.interfaces.IFolder"
+     for="*"
      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
      layer="collective.plausible.interfaces.ICollectivePlausibleLayer"
      class=".plausible_snippet_viewlet.PlausibleSnippetViewlet"

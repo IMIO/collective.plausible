@@ -24,10 +24,26 @@ class IPlausibleFields(model.Schema):
         "plausible_fields",
         label=_("Plausible fields"),
         description=_("Plausible analytics fields"),
-        fields=["url", "site", "token", "link_user_action"],
+        fields=[
+            "plausible_enabled",
+            "plausible_url",
+            "plausible_site",
+            "plausible_token",
+            "plausible_link_object_action",
+        ],
     )
 
-    url = schema.TextLine(
+    plausible_enabled = schema.Bool(
+        title=_("Enable Plausible"),
+        description=_(
+            "Enable Plausible analytics tracking on this content and all its children."
+        ),
+        default=False,
+        required=False,
+        readonly=False,
+    )
+
+    plausible_url = schema.TextLine(
         title=_("Plausible URL"),
         description=_("Example : plausible.imio.be"),
         default="",
@@ -35,7 +51,7 @@ class IPlausibleFields(model.Schema):
         readonly=False,
     )
 
-    site = schema.TextLine(
+    plausible_site = schema.TextLine(
         title=_("Plausible Site"),
         description=_("Example : imio.be"),
         default="",
@@ -43,7 +59,7 @@ class IPlausibleFields(model.Schema):
         readonly=False,
     )
 
-    token = schema.TextLine(
+    plausible_token = schema.TextLine(
         title=_("Plausible token"),
         description=_("Plausible authentification token"),
         default="",
@@ -51,9 +67,9 @@ class IPlausibleFields(model.Schema):
         readonly=False,
     )
 
-    link_user_action = schema.Bool(
-        title=_("Add a link in the user menu"),
-        description=_("Add a link to the statistics browser view in the user menu"),
+    plausible_link_object_action = schema.Bool(
+        title=_("Add a link in the object menu"),
+        description=_("Add a link to the statistics browser view in the object menu"),
         default=True,
         required=False,
         readonly=False,
@@ -67,41 +83,51 @@ class PlausibleFields(object):
         self.context = context
 
     @property
-    def url(self):
-        if safe_hasattr(self.context, "url"):
-            return self.context.url
+    def plausible_enabled(self):
+        if safe_hasattr(self.context, "plausible_enabled"):
+            return self.context.plausible_enabled
         return None
 
-    @url.setter
-    def url(self, value):
-        self.context.url = value
+    @plausible_enabled.setter
+    def plausible_enabled(self, value):
+        self.context.plausible_enabled = value
 
     @property
-    def site(self):
-        if safe_hasattr(self.context, "site"):
-            return self.context.site
+    def plausible_url(self):
+        if safe_hasattr(self.context, "plausible_url"):
+            return self.context.plausible_url
         return None
 
-    @site.setter
-    def site(self, value):
-        self.context.site = value
+    @plausible_url.setter
+    def plausible_url(self, value):
+        self.context.plausible_url = value
 
     @property
-    def token(self):
-        if safe_hasattr(self.context, "token"):
-            return self.context.token
+    def plausible_site(self):
+        if safe_hasattr(self.context, "plausible_site"):
+            return self.context.plausible_site
         return None
 
-    @token.setter
-    def token(self, value):
-        self.context.token = value
+    @plausible_site.setter
+    def plausible_site(self, value):
+        self.context.plausible_site = value
 
     @property
-    def link_user_action(self):
-        if safe_hasattr(self.context, "link_user_action"):
-            return self.context.link_user_action
+    def plausible_token(self):
+        if safe_hasattr(self.context, "plausible_token"):
+            return self.context.plausible_token
         return None
 
-    @link_user_action.setter
-    def link_user_action(self, value):
-        self.context.link_user_action = value
+    @plausible_token.setter
+    def plausible_token(self, value):
+        self.context.plausible_token = value
+
+    @property
+    def plausible_link_object_action(self):
+        if safe_hasattr(self.context, "plausible_link_object_action"):
+            return self.context.plausible_link_object_action
+        return None
+
+    @plausible_link_object_action.setter
+    def plausible_link_object_action(self, value):
+        self.context.plausible_link_object_action = value
