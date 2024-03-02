@@ -27,6 +27,14 @@
       />
 
   <genericsetup:registerProfile
+      name="testing"
+      title="collective.plausible (testing)"
+      directory="profiles/testing"
+      description="Installs the collective.plausible.testing profile."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:registerProfile
       name="uninstall"
       title="collective.plausible (uninstall)"
       directory="profiles/uninstall"
