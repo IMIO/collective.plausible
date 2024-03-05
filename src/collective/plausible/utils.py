@@ -3,6 +3,23 @@
 from plone import api
 
 import os
+from collective.plausible.behaviors.plausible_fields import IPlausibleFieldsMarker
+from Products.CMFPlone.Portal import PloneSite
+from Products.CMFPlone.utils import parent
+
+
+def get_plausible_infos(content):
+    while (
+        not IPlausibleFieldsMarker.providedBy(content)
+        or not getattr(content, "plausible_enabled", False)
+    ) and not isinstance(content, PloneSite):
+        content = parent(content)
+    return {
+        "plausible_enabled": getattr(content, "plausible_enabled", False),
+        "plausible_url": getattr(content, "plausible_url", ""),
+        "plausible_site": getattr(content, "plausible_site", ""),
+        "plausible_token": getattr(content, "plausible_token", ""),
+    }
 
 
 def get_plausible_vars():

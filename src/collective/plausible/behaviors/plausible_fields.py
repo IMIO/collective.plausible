@@ -70,7 +70,7 @@ class IPlausibleFields(model.Schema):
     plausible_link_object_action = schema.Bool(
         title=_("Add a link in the object menu"),
         description=_("Add a link to the statistics browser view in the object menu"),
-        default=True,
+        default=False,
         required=False,
         readonly=False,
     )
