@@ -20,7 +20,7 @@ class UpgradeStepIntegrationTest(unittest.TestCase):
         portal_setup = getToolByName(self.portal, "portal_setup")
         portal_setup.runAllImportStepsFromProfile("collective.plausible:default")
         actions_tool = getToolByName(self.portal, "portal_actions")
-        action_ids = actions_tool["user"].objectIds()
+        action_ids = actions_tool["object"].objectIds()
         self.assertIn("statistics", action_ids)
 
 

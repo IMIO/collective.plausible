@@ -27,7 +27,7 @@ class ViewletIntegrationTest(unittest.TestCase):
 
     def test_plausible_snippet_viewlet_is_registered(self):
         view = BrowserView(self.portal["other-document"], self.request)
-        manager_name = "plone.abovecontenttitle"
+        manager_name = "plone.portalfooter"
         alsoProvides(self.request, ICollectivePlausibleLayer)
         manager = queryMultiAdapter(
             (self.portal["other-document"], self.request, view),

@@ -11,7 +11,7 @@ class HiddenProfiles(object):
             "collective.plausible:uninstall",
         ]
 
-    def getNonInstallableProducts(self):
+    def getNonInstallableProducts(self):  # pragma: no cover
         """Hide the upgrades package from site-creation and quickinstaller."""
         return ["collective.plausible.upgrades"]
 

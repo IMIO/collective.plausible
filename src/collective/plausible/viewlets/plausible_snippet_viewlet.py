@@ -7,9 +7,6 @@ from plone.app.layout.viewlets import ViewletBase
 class PlausibleSnippetViewlet(ViewletBase):
 
     def update(self):
-        # fmt: off
-        import pdb; pdb.set_trace()
-        # fmt: on
         self.plausible_infos = get_plausible_infos(self)
         self.plausible_url = self.get_plausible_url()
         self.plausible_site = self.get_plausible_site()

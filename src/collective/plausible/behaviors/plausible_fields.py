@@ -78,7 +78,7 @@ class IPlausibleFields(model.Schema):
 
 @implementer(IPlausibleFields)
 @adapter(IPlausibleFieldsMarker)
-class PlausibleFields(object):
+class PlausibleFields(object):  # pragma: no cover
     def __init__(self, context):
         self.context = context
 

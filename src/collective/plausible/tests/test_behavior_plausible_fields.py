@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 from collective.plausible.behaviors.plausible_fields import IPlausibleFieldsMarker
+from collective.plausible.behaviors.plausible_fields import PlausibleFields
 from collective.plausible.views.plausible_view import PlausibleView
 from collective.plausible.testing import COLLECTIVE_PLAUSIBLE_FUNCTIONAL_TESTING
 from collective.plausible.testing import COLLECTIVE_PLAUSIBLE_INTEGRATION_TESTING
 from plone import api
-from plone.app.testing import applyProfile
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from plone.dexterity.interfaces import IDexterityFTI
@@ -21,12 +21,12 @@ class PlausibleFieldsIntegrationTest(unittest.TestCase):
         self.request = self.layer["request"]
         self.portal = self.layer["portal"]
 
-        # enable behavior on plonesite and folders
-        # applyProfile(self.portal, "collective.plausible:testing")
+        # behavior already applied on Folder by profile
+        # enabling it on Plone Site
         fti = queryUtility(IDexterityFTI, name="Plone Site")
         behaviors = list(fti.behaviors)
-        behaviors.append('collective.plausible.plausible_fields')
-        fti._updateProperty('behaviors', tuple(behaviors))
+        behaviors.append("collective.plausible.plausible_fields")
+        fti._updateProperty("behaviors", tuple(behaviors))
 
         setRoles(self.portal, TEST_USER_ID, ["Manager"])
         api.content.create(self.portal, "Document", "document")
@@ -79,8 +79,7 @@ class PlausibleFieldsIntegrationTest(unittest.TestCase):
     def test_plausible_fields_testing_profile(self):
         self.assertFalse(IPlausibleFieldsMarker.providedBy(self.portal["document"]))
         self.assertTrue(IPlausibleFieldsMarker.providedBy(self.portal["folder"]))
-        # TODO
-        # self.assertTrue(IPlausibleFieldsMarker.providedBy(self.portal))
+        self.assertTrue(IPlausibleFieldsMarker.providedBy(self.portal))
 
     def test_plausible_fields_behavior_fields(self):
 
@@ -146,7 +145,6 @@ class PlausibleFieldsIntegrationTest(unittest.TestCase):
             getattr(self.portal["folder"]["subfolder2"], "plausible_site"),
             "subfolder2.kamoulox.be",
         )
-        __import__("pdb").set_trace()
         self.assertFalse(
             getattr(
                 self.portal["folder"]["subfolder2"],
@@ -191,7 +189,29 @@ class PlausibleFieldsIntegrationTest(unittest.TestCase):
         subfolder = api.content.get(UID=uid)
         self.assertIn(self.snippet_plonesite, subfolder())
 
-        # tester aussi si désactivé sur plonesite
+        # disabling behavior on plone site
+        fti = queryUtility(IDexterityFTI, name="Plone Site")
+        behaviors = list(fti.behaviors)
+        behaviors.remove("collective.plausible.plausible_fields")
+        fti._updateProperty("behaviors", tuple(behaviors))
+        for property in [
+            "plausible_enabled",
+            "plausible_url",
+            "plausible_site",
+            "plausible_token",
+            "plausible_link_object_action",
+        ]:
+            setattr(self.portal, property, None)
+        for snippet in [
+            self.snippet_plonesite,
+            self.snippet_folder,
+            self.snippet_subfolder,
+        ]:
+            self.assertNotIn(snippet, self.portal())
+
+        uid = self.portal["folder2"]["subfolder"].UID()
+        subfolder = api.content.get(UID=uid)
+        self.assertNotIn(self.snippet_plonesite, subfolder())
 
     def test_plausible_view_traversing(self):
         view_plonesite = PlausibleView(self.portal, self.request)
@@ -211,10 +231,6 @@ class PlausibleFieldsIntegrationTest(unittest.TestCase):
         self.assertIn(self.iframe_folder, view_subfolder2())
         self.assertIn(self.iframe_plonesite, view_folder2())
         self.assertIn(self.iframe_plonesite, view_subfolder3())
-
-        # fmt: off
-        # import pdb; pdb.set_trace()
-        # fmt: on
 
 
 class PlausibleFieldsFunctionalTest(unittest.TestCase):
