@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from collective.plausible.behaviors.plausible_fields import IPlausibleFieldsMarker
 from collective.plausible.behaviors.plausible_fields import PlausibleFields
+from collective.plausible.utils import get_plausible_infos
 from collective.plausible.views.plausible_view import PlausibleView
 from collective.plausible.testing import COLLECTIVE_PLAUSIBLE_FUNCTIONAL_TESTING
 from collective.plausible.testing import COLLECTIVE_PLAUSIBLE_INTEGRATION_TESTING
@@ -231,6 +232,68 @@ class PlausibleFieldsIntegrationTest(unittest.TestCase):
         self.assertIn(self.iframe_folder, view_subfolder2())
         self.assertIn(self.iframe_plonesite, view_folder2())
         self.assertIn(self.iframe_plonesite, view_subfolder3())
+
+    def test_plausible_user_action(self):
+
+        # __import__("pdb").set_trace()
+
+        self.assertTrue(
+            get_plausible_infos(self.portal)["plausible_link_object_action"]
+        )
+
+        self.assertTrue(
+            get_plausible_infos(self.portal["folder"])["plausible_link_object_action"]
+        )
+
+        self.assertTrue(
+            get_plausible_infos(self.portal["folder"]["subfolder"])[
+                "plausible_link_object_action"
+            ]
+        )
+
+        self.assertTrue(
+            get_plausible_infos(self.portal["folder"]["subfolder2"])[
+                "plausible_link_object_action"
+            ]
+        )
+
+        self.assertTrue(
+            get_plausible_infos(self.portal["folder2"])["plausible_link_object_action"]
+        )
+
+        self.assertTrue(
+            get_plausible_infos(self.portal["folder2"]["subfolder"])[
+                "plausible_link_object_action"
+            ]
+        )
+
+        # disabling behavior on plone site
+        fti = queryUtility(IDexterityFTI, name="Plone Site")
+        behaviors = list(fti.behaviors)
+        behaviors.remove("collective.plausible.plausible_fields")
+        fti._updateProperty("behaviors", tuple(behaviors))
+        for property in [
+            "plausible_enabled",
+            "plausible_url",
+            "plausible_site",
+            "plausible_token",
+            "plausible_link_object_action",
+        ]:
+            setattr(self.portal, property, None)
+
+        self.assertFalse(
+            get_plausible_infos(self.portal)["plausible_link_object_action"]
+        )
+
+        self.assertTrue(
+            get_plausible_infos(self.portal["folder"])["plausible_link_object_action"]
+        )
+
+        self.assertFalse(
+            get_plausible_infos(self.portal["folder2"]["subfolder"])[
+                "plausible_link_object_action"
+            ]
+        )
 
 
 class PlausibleFieldsFunctionalTest(unittest.TestCase):

@@ -1,14 +1,19 @@
 <?xml version="1.0"?>
 <object name="portal_actions" meta_type="Plone Actions Tool"
   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+ <object meta_type="CMF Action Category" name="user">
+    <object meta_type="CMF Action" name="statistics" i18n:domain="collective.plausible" remove="True">
+    </object>
+  </object>
+ </object>
   <object meta_type="CMF Action Category" name="object">
     <object meta_type="CMF Action" name="statistics" i18n:domain="collective.plausible">
       <property name="title" i18n:translate="">Statistics</property>
       <property name="description" i18n:translate=""/>
       <property name="url_expr">string:$object_url/@@plausible-view</property>
       <property name="icon_expr">string:activity</property>
-      <property name="available_expr">here/@@plausible-utils/add_link_user_action</property>
-      <!-- <property name="available_expr">python: getattr(object,"plausible_enabled", False) and getattr(object,"plausible_link_object_action", False)</property> -->
+      <!-- <property name="available_expr"> python:getattr(object,"plausible_enabled", False) and getattr(object,"plausible_link_object_action", False)</property> -->
+      <property name="available_expr">python: object.plausible_enabled and object.plausible_link_object_action</property>
       <property name="permissions">
         <element value="Add portal content"/>
       </property>
