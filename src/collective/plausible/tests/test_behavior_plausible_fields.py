@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from collective.plausible.behaviors.plausible_fields import IPlausibleFieldsMarker
-from collective.plausible.views.plausible_view import IPlausibleView
 from collective.plausible.views.plausible_view import PlausibleView
 from collective.plausible.testing import COLLECTIVE_PLAUSIBLE_FUNCTIONAL_TESTING
 from collective.plausible.testing import COLLECTIVE_PLAUSIBLE_INTEGRATION_TESTING
@@ -8,6 +7,9 @@ from plone import api
 from plone.app.testing import applyProfile
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
+from plone.dexterity.interfaces import IDexterityFTI
+from zope.component import queryUtility
+
 import unittest
 
 
@@ -20,7 +22,11 @@ class PlausibleFieldsIntegrationTest(unittest.TestCase):
         self.portal = self.layer["portal"]
 
         # enable behavior on plonesite and folders
-        applyProfile(self.portal, "collective.plausible:testing")
+        # applyProfile(self.portal, "collective.plausible:testing")
+        fti = queryUtility(IDexterityFTI, name="Plone Site")
+        behaviors = list(fti.behaviors)
+        behaviors.append('collective.plausible.plausible_fields')
+        fti._updateProperty('behaviors', tuple(behaviors))
 
         setRoles(self.portal, TEST_USER_ID, ["Manager"])
         api.content.create(self.portal, "Document", "document")
@@ -140,9 +146,7 @@ class PlausibleFieldsIntegrationTest(unittest.TestCase):
             getattr(self.portal["folder"]["subfolder2"], "plausible_site"),
             "subfolder2.kamoulox.be",
         )
-        # fmt: off
-        import pdb; pdb.set_trace()
-        # fmt: on
+        __import__("pdb").set_trace()
         self.assertFalse(
             getattr(
                 self.portal["folder"]["subfolder2"],

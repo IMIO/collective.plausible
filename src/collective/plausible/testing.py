@@ -27,7 +27,7 @@ class CollectivePlausibleLayer(PloneSandboxLayer):
         self.loadZCML(package=collective.plausible)
 
     def setUpPloneSite(self, portal):
-        applyProfile(portal, "collective.plausible:default")
+        applyProfile(portal, "collective.plausible:testing")
 
 
 COLLECTIVE_PLAUSIBLE_FIXTURE = CollectivePlausibleLayer()
