@@ -235,8 +235,6 @@ class PlausibleFieldsIntegrationTest(unittest.TestCase):
 
     def test_plausible_user_action(self):
 
-        # __import__("pdb").set_trace()
-
         self.assertTrue(
             get_plausible_infos(self.portal)["plausible_link_object_action"]
         )

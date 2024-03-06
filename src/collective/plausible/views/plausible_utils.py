@@ -21,17 +21,23 @@ class PlausibleUtilsView(BrowserView):
 
     def is_plausible_set(self):
         # __import__("pdb").set_trace()
-        return True if get_plausible_infos(self) else False
+        plausible_infos = get_plausible_infos(self)
+        for key in plausible_infos:
+            if plausible_infos[key] == "" or not plausible_infos[key]:
+                return False
+        return True
 
-    def add_link_user_action(self):
+    def add_link_object_action(self):
         # __import__("pdb").set_trace()
-        return getattr(get_plausible_infos(self), "plausible_link_object_action", False)
+        return get_plausible_infos(self).get("plausible_link_object_action", False)
 
     @property
     def get_plausible_instance_healthcheck(self):
         vars = get_plausible_infos(self)
         try:
-            response = requests.get(f"https://{vars['plausible_url']}/api/health")
+            response = requests.get(
+                f"https://{vars.get('plausible_url', '')}/api/health"
+            )
             return response.json()
         except:
             return False

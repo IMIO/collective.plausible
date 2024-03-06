@@ -19,7 +19,7 @@
     for="*"
     class=".plausible_utils.PlausibleUtilsView"
     permission="zope2.View"
-    allowed_attributes="is_plausible_set add_link_user_action get_plausible_instance_healthcheck"
+    allowed_attributes="is_plausible_set add_link_object_action get_plausible_instance_healthcheck"
     layer="collective.plausible.interfaces.ICollectivePlausibleLayer"
     />
 
