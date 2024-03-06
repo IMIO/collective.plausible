@@ -233,7 +233,7 @@ class PlausibleFieldsIntegrationTest(unittest.TestCase):
         self.assertIn(self.iframe_plonesite, view_folder2())
         self.assertIn(self.iframe_plonesite, view_subfolder3())
 
-    def test_plausible_user_action(self):
+    def test_plausible_object_action(self):
 
         self.assertTrue(
             get_plausible_infos(self.portal)["plausible_link_object_action"]

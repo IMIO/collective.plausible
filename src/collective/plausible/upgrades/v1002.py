@@ -11,16 +11,8 @@ from zope.component import getUtility
 
 def upgrade(setup_tool=None):
     """ """
-    logger.info("Running upgrade (Python): Add action linking to @@plausible-view")
+    logger.info("Running upgrade (Python): Replace action linking to @@plausible-view")
     registry = getUtility(IRegistry)
-    if "collective.plausible.link_user_action" not in registry.records:
-        registry_field = field.Bool(
-            title=_("Add a link in the user menu"),
-            description=_("Add a link to the statistics browser view in the user menu"),
-            default=True,
-            required=False,
-            readonly=False,
-        )
-        registry_record = Record(registry_field)
-        registry.records["collective.plausible.link_user_action"] = registry_record
+    if "collective.plausible.link_user_action" in registry.records:
+        del registry.records["collective.plausible.link_user_action"]
     reload_gs_profile(setup_tool)

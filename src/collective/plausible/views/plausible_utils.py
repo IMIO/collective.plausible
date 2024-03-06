@@ -31,6 +31,9 @@ class PlausibleUtilsView(BrowserView):
         # __import__("pdb").set_trace()
         return get_plausible_infos(self).get("plausible_link_object_action", False)
 
+    def show_link_object_action(self):
+        return self.add_link_object_action() and self.is_plausible_set()
+
     @property
     def get_plausible_instance_healthcheck(self):
         vars = get_plausible_infos(self)

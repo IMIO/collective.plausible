@@ -7,8 +7,7 @@
       <property name="description" i18n:translate=""/>
       <property name="url_expr">string:$object_url/@@plausible-view</property>
       <property name="icon_expr">string:activity</property>
-      <property name="available_expr">here/@@plausible-utils/add_link_object_action</property>
-      <!-- <property name="available_expr">python: getattr(object,"plausible_enabled", False) and getattr(object,"plausible_link_object_action", False)</property> -->
+      <property name="available_expr">here/@@plausible-utils/show_link_object_action</property>
       <property name="permissions">
         <element value="Add portal content"/>
       </property>
