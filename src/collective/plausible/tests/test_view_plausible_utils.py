@@ -1,13 +1,10 @@
 # -*- coding: utf-8 -*-
 from collective.plausible.testing import COLLECTIVE_PLAUSIBLE_FUNCTIONAL_TESTING
 from collective.plausible.views.plausible_utils import PlausibleUtilsView
-from plone import api
+from collective.plausible.utils import HAS_PLONE6
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from unittest import mock
-from zope.component import getMultiAdapter
-from zope.component import queryMultiAdapter
-from zope.interface.interfaces import ComponentLookupError
 from plone.dexterity.interfaces import IDexterityFTI
 from zope.component import queryUtility
 
@@ -23,15 +20,15 @@ class ViewsFunctionalTest(unittest.TestCase):
     def setUp(self):
         self.portal = self.layer["portal"]
         self.request = self.layer["request"]
-
+        setRoles(self.portal, TEST_USER_ID, ["Manager"])
+        if not HAS_PLONE6:
+            return
         # behavior already applied on Folder by profile
         # enabling it on Plone Site
         fti = queryUtility(IDexterityFTI, name="Plone Site")
         behaviors = list(fti.behaviors)
         behaviors.append("collective.plausible.plausible_fields")
         fti._updateProperty("behaviors", tuple(behaviors))
-
-        setRoles(self.portal, TEST_USER_ID, ["Manager"])
 
     @mock.patch("requests.get")
     def test_get_plausible_instance_healthcheck_success(self, mock_get):

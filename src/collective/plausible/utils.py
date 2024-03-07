@@ -4,8 +4,13 @@ from plone import api
 
 import os
 from collective.plausible.behaviors.plausible_fields import IPlausibleFieldsMarker
+from pkg_resources import parse_version
+from plone.api import env
 from Products.CMFPlone.Portal import PloneSite
 from Products.CMFPlone.utils import parent
+
+
+HAS_PLONE6 = parse_version(env.plone_version()) >= parse_version("6.0")
 
 
 def get_plausible_infos(content):
