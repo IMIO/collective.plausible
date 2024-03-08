@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0a6 (unreleased)
+1.0a6 (2024-03-08)
 ------------------
 
 - Fix : action names
