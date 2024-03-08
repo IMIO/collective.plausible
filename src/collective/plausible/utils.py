@@ -3,34 +3,30 @@
 from plone import api
 
 import os
+from collective.plausible.behaviors.plausible_fields import IPlausibleFieldsMarker
+from pkg_resources import parse_version
+from plone.api import env
+from Products.CMFPlone.Portal import PloneSite
+from Products.CMFPlone.utils import parent
 
 
-def get_plausible_vars():
-    env_plausible_url = os.getenv("COLLECTIVE_PLAUSIBLE_URL", "")
-    env_plausible_site = os.getenv("COLLECTIVE_PLAUSIBLE_SITE", "")
-    env_plausible_token = os.getenv("COLLECTIVE_PLAUSIBLE_TOKEN", "")
+HAS_PLONE6 = parse_version(env.plone_version()) >= parse_version("6.0")
 
-    plausible_url = (
-        env_plausible_url
-        if (env_plausible_url and env_plausible_url != "")
-        else api.portal.get_registry_record("collective.plausible.url")
-    )
-    plausible_site = (
-        env_plausible_site
-        if (env_plausible_site and env_plausible_site != "")
-        else api.portal.get_registry_record("collective.plausible.site")
-    )
-    plausible_token = (
-        env_plausible_token
-        if (env_plausible_token and env_plausible_token != "")
-        else api.portal.get_registry_record("collective.plausible.token")
-    )
-    if all([plausible_site, plausible_url, plausible_token]):
-        plausible_vars = {
-            "plausible_url": plausible_url,
-            "plausible_site": plausible_site,
-            "plausible_token": plausible_token,
-        }
-        return plausible_vars
-    else:
-        return None
+
+def get_plausible_infos(content):
+
+    while (not isinstance(content, PloneSite)) and not (
+        IPlausibleFieldsMarker.providedBy(content)
+        and getattr(content, "plausible_enabled", False)
+    ):
+        content = parent(content)
+    # __import__("pdb").set_trace()
+    return {
+        "plausible_enabled": getattr(content, "plausible_enabled", False),
+        "plausible_url": getattr(content, "plausible_url", ""),
+        "plausible_site": getattr(content, "plausible_site", ""),
+        "plausible_token": getattr(content, "plausible_token", ""),
+        "plausible_link_object_action": getattr(
+            content, "plausible_link_object_action", False
+        ),
+    }

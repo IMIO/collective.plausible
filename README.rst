@@ -32,9 +32,11 @@ Plausible integration into Plone 5 and Plone 6 classic UI
 Features
 --------
 
+- Behavior to set plausible fields on content types
+- Viewlet to include plausible tracking code in the page
 - Statistics browserview @@plausible-view
-- Optional link to statistics browserview in user menu
-- Plausible server healthcheck in control panel
+- Plausible server healthcheck browserview @@plausible-healthcheck
+- Optional link to the browserviews in object menu
 
 
 
@@ -81,6 +83,7 @@ Contributors
 
 - Rémi Dubois <remi.dubois@imio.be>
 - Christophe Boulanger <christophe.boulanger@imio.be>
+- Benoît Suttor <benoit.suttor@imio.be>
 
 
 Contribute

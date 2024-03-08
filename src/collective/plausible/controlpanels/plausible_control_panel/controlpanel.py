@@ -11,37 +11,7 @@ from zope.interface import Interface
 
 
 class IPlausibleControlPanel(Interface):
-    url = schema.TextLine(
-        title=_("Plausible URL"),
-        description=_("Example : plausible.imio.be"),
-        default="",
-        required=False,
-        readonly=False,
-    )
-
-    site = schema.TextLine(
-        title=_("Plausible Site"),
-        description=_("Example : imio.be"),
-        default="",
-        required=False,
-        readonly=False,
-    )
-
-    token = schema.TextLine(
-        title=_("Plausible token"),
-        description=_("Plausible authentification token"),
-        default="",
-        required=False,
-        readonly=False,
-    )
-
-    link_user_action = schema.Bool(
-        title=_("Add a link in the user menu"),
-        description=_("Add a link to the statistics browser view in the user menu"),
-        default=True,
-        required=False,
-        readonly=False,
-    )
+    pass
 
 
 class PlausibleControlPanel(RegistryEditForm):

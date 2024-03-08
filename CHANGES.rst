@@ -5,8 +5,14 @@ Changelog
 1.0a5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Refactor : collective.plausible is now based on a behavior
+  [remdub]
 
+- Add viewlet to insert plausible tracking code in the page
+  [remdub]
+
+- Refactor : server healthcheck is now a separate view @@plausible-healthcheck
+  [remdub]
 
 1.0a4 (2024-02-22)
 ------------------

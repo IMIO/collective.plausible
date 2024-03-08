@@ -8,19 +8,26 @@
 
   <browser:page
     name="plausible-view"
-    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+    for="*"
     class=".plausible_view.PlausibleView"
-    template="plausible_view.pt"
+    permission="zope2.View"
+    layer="collective.plausible.interfaces.ICollectivePlausibleLayer"
+    />
+
+  <browser:page
+    name="plausible-healthcheck"
+    for="*"
+    class=".plausible_healthcheck.PlausibleHealthcheckView"
     permission="zope2.View"
     layer="collective.plausible.interfaces.ICollectivePlausibleLayer"
     />
 
   <browser:page
     name="plausible-utils"
-    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+    for="*"
     class=".plausible_utils.PlausibleUtilsView"
     permission="zope2.View"
-    allowed_attributes="is_plausible_set add_link_user_action get_plausible_instance_healthcheck"
+    allowed_attributes="is_plausible_set add_link_object_action show_link_object_action get_plausible_instance_healthcheck"
     layer="collective.plausible.interfaces.ICollectivePlausibleLayer"
     />
 

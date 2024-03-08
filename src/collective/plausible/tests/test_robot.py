@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from collective.plausible.testing import (
+from collective.plausible.testing import (  # noqa: E501
     COLLECTIVE_PLAUSIBLE_ACCEPTANCE_TESTING,
-)  # noqa: E501
+)
 from plone.app.testing import ROBOT_TEST_LEVEL
 from plone.testing import layered
 

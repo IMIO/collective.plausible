@@ -1,0 +1,5 @@
+<div class="plausible-snippet" tal:condition="view/is_plausible_enabled">
+    <div tal:condition="view/is_plausible_set">
+        <script defer data-domain="${view/plausible_site}" src="https://${view/plausible_url}/js/script.js"></script>
+    </div>
+</div>

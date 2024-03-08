@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
+# from collective.plausible.testing import COLLECTIVE_PLAUSIBLE_FUNCTIONAL_TESTING
+from collective.plausible.testing import COLLECTIVE_PLAUSIBLE_INTEGRATION_TESTING
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from Products.CMFCore.utils import getToolByName
-
-# from collective.plausible.testing import COLLECTIVE_PLAUSIBLE_FUNCTIONAL_TESTING
-from collective.plausible.testing import COLLECTIVE_PLAUSIBLE_INTEGRATION_TESTING
 
 import unittest
 
@@ -21,7 +20,7 @@ class UpgradeStepIntegrationTest(unittest.TestCase):
         portal_setup = getToolByName(self.portal, "portal_setup")
         portal_setup.runAllImportStepsFromProfile("collective.plausible:default")
         actions_tool = getToolByName(self.portal, "portal_actions")
-        action_ids = actions_tool["user"].objectIds()
+        action_ids = actions_tool["object"].objectIds()
         self.assertIn("statistics", action_ids)
 
 

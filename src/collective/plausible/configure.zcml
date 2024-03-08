@@ -27,6 +27,14 @@
       />
 
   <genericsetup:registerProfile
+      name="testing"
+      title="collective.plausible (testing)"
+      directory="profiles/testing"
+      description="Installs the collective.plausible.testing profile."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:registerProfile
       name="uninstall"
       title="collective.plausible (uninstall)"
       directory="profiles/uninstall"
@@ -42,11 +50,10 @@
 
   <!-- -*- extra stuff goes here -*- -->
 
+  <include package=".viewlets" />
+  <include package=".behaviors" />
   <include package=".upgrades" />
-
   <include package=".controlpanels" />
-
-
   <include package=".views" />
 
 </configure>

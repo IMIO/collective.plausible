@@ -1,0 +1,20 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="collective.plausible">
+
+ <!-- -*- extra stuff goes here -*- -->
+
+  <browser:viewlet
+     name="plausible-snippet-viewlet"
+     for="*"
+     manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+     layer="collective.plausible.interfaces.ICollectivePlausibleLayer"
+     class=".plausible_snippet_viewlet.PlausibleSnippetViewlet"
+     template="plausible-snippet-viewlet.pt"
+     permission="zope2.View"
+     />
+
+
+</configure>
