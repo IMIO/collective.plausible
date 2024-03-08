@@ -2,7 +2,7 @@
 <object name="portal_actions" meta_type="Plone Actions Tool"
   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
   <object meta_type="CMF Action Category" name="object">
-    <object meta_type="CMF Action" name="statistics" i18n:domain="collective.plausible">
+    <object meta_type="CMF Action" name="plausible-view" i18n:domain="collective.plausible">
       <property name="title" i18n:translate="">Statistics</property>
       <property name="description" i18n:translate=""/>
       <property name="url_expr">string:$object_url/@@plausible-view</property>
@@ -13,7 +13,7 @@
       </property>
       <property name="visible">True</property>
     </object>
-    <object meta_type="CMF Action" name="statistics" i18n:domain="collective.plausible">
+    <object meta_type="CMF Action" name="plausible-healthcheck" i18n:domain="collective.plausible">
       <property name="title" i18n:translate="">Plausible server healthcheck</property>
       <property name="description" i18n:translate=""/>
       <property name="url_expr">string:$object_url/@@plausible-healthcheck</property>

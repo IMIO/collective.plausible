@@ -5,7 +5,8 @@ Changelog
 1.0a6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix : action names
+  [remdub]
 
 
 1.0a5 (2024-03-08)
