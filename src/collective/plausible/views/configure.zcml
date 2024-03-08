@@ -15,6 +15,14 @@
     />
 
   <browser:page
+    name="plausible-healthcheck"
+    for="*"
+    class=".plausible_healthcheck.PlausibleHealthcheckView"
+    permission="zope2.View"
+    layer="collective.plausible.interfaces.ICollectivePlausibleLayer"
+    />
+
+  <browser:page
     name="plausible-utils"
     for="*"
     class=".plausible_utils.PlausibleUtilsView"

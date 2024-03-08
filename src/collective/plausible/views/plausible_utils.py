@@ -33,14 +33,3 @@ class PlausibleUtilsView(BrowserView):
 
     def show_link_object_action(self):
         return self.add_link_object_action() and self.is_plausible_set()
-
-    @property
-    def get_plausible_instance_healthcheck(self):
-        vars = get_plausible_infos(self)
-        try:
-            response = requests.get(
-                f"https://{vars.get('plausible_url', '')}/api/health"
-            )
-            return response.json()
-        except:
-            return False

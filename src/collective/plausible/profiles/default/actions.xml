@@ -13,5 +13,16 @@
       </property>
       <property name="visible">True</property>
     </object>
+    <object meta_type="CMF Action" name="statistics" i18n:domain="collective.plausible">
+      <property name="title" i18n:translate="">Plausible server healthcheck</property>
+      <property name="description" i18n:translate=""/>
+      <property name="url_expr">string:$object_url/@@plausible-healthcheck</property>
+      <property name="icon_expr">string:database-up</property>
+      <property name="available_expr">here/@@plausible-utils/show_link_object_action</property>
+      <property name="permissions">
+        <element value="Add portal content"/>
+      </property>
+      <property name="visible">True</property>
+    </object>
   </object>
 </object>

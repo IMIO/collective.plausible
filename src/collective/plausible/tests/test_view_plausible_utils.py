@@ -8,8 +8,6 @@ from unittest import mock
 from plone.dexterity.interfaces import IDexterityFTI
 from zope.component import queryUtility
 
-import os
-import requests
 import unittest
 
 
@@ -29,38 +27,6 @@ class ViewsFunctionalTest(unittest.TestCase):
         behaviors = list(fti.behaviors)
         behaviors.append("collective.plausible.plausible_fields")
         fti._updateProperty("behaviors", tuple(behaviors))
-
-    @mock.patch("requests.get")
-    def test_get_plausible_instance_healthcheck_success(self, mock_get):
-        utils_view = PlausibleUtilsView(self.portal, self.request)
-        self.portal.plausible_url = "plausible-url"
-        mock_response = mock.Mock()
-        mock_response.json.return_value = {
-            "clickhouse": "ok",
-            "postgres": "ok",
-            "sites_cache": "ok",
-        }
-        mock_get.return_value = mock_response
-        result = utils_view.get_plausible_instance_healthcheck
-
-        self.assertEqual(
-            result,
-            {
-                "clickhouse": "ok",
-                "postgres": "ok",
-                "sites_cache": "ok",
-            },
-        )
-        mock_get.assert_called_once_with("https://plausible-url/api/health")
-
-    @mock.patch("requests.get")
-    def test_get_plausible_instance_healthcheck_failure(self, mock_get):
-        mock_get.side_effect = requests.exceptions.RequestException
-        utils_view = PlausibleUtilsView(self.portal, self.request)
-        self.portal.plausible_url = "plausible-url"
-        result = utils_view.get_plausible_instance_healthcheck
-        self.assertFalse(result)
-        mock_get.assert_called_once_with("https://plausible-url/api/health")
 
     def test_add_link_object_action(self):
         utils_view = PlausibleUtilsView(self.portal, self.request)

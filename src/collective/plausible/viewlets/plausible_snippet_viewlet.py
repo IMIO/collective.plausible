@@ -25,5 +25,5 @@ class PlausibleSnippetViewlet(ViewletBase):
     def get_plausible_site(self):
         return self.plausible_infos["plausible_site"]
 
-    def index(self):
+    def index(self):  # pragma: no cover
         return super(PlausibleSnippetViewlet, self).render()
