@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0a5 (unreleased)
+1.0a5 (2024-03-08)
 ------------------
 
 - Refactor : collective.plausible is now based on a behavior
