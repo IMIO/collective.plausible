@@ -1,10 +1,8 @@
-# -*- coding: utf-8 -*-
 from collective.plausible.behaviors.plausible_fields import IPlausibleFieldsMarker
-from collective.plausible.utils import HAS_PLONE6
-from collective.plausible.utils import get_plausible_infos
-from collective.plausible.views.plausible_view import PlausibleView
 from collective.plausible.testing import COLLECTIVE_PLAUSIBLE_FUNCTIONAL_TESTING
 from collective.plausible.testing import COLLECTIVE_PLAUSIBLE_INTEGRATION_TESTING
+from collective.plausible.utils import get_plausible_infos
+from collective.plausible.views.plausible_view import PlausibleView
 from plone import api
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
@@ -22,13 +20,12 @@ class PlausibleFieldsIntegrationTest(unittest.TestCase):
         self.request = self.layer["request"]
         self.portal = self.layer["portal"]
 
-        if HAS_PLONE6:
-            # behavior already applied on Folder by profile
-            # enabling it on Plone Site
-            fti = queryUtility(IDexterityFTI, name="Plone Site")
-            behaviors = list(fti.behaviors)
-            behaviors.append("collective.plausible.plausible_fields")
-            fti._updateProperty("behaviors", tuple(behaviors))
+        # behavior already applied on Folder by profile
+        # enabling it on Plone Site
+        fti = queryUtility(IDexterityFTI, name="Plone Site")
+        behaviors = list(fti.behaviors)
+        behaviors.append("collective.plausible.plausible_fields")
+        fti._updateProperty("behaviors", tuple(behaviors))
 
         setRoles(self.portal, TEST_USER_ID, ["Manager"])
         api.content.create(self.portal, "Document", "document")
@@ -42,64 +39,59 @@ class PlausibleFieldsIntegrationTest(unittest.TestCase):
         api.content.create(self.portal["folder2"], "Document", "document")
         api.content.create(self.portal["folder2"], "Folder", "subfolder")
 
-        if HAS_PLONE6:
-            self.portal.plausible_enabled = True
-            self.portal.plausible_url = "plonesite.plausible.be"
-            self.portal.plausible_site = "plonesite.kamoulox.be"
-            self.portal.plausible_token = "plonesitetoken123"
-            self.portal.plausible_link_object_action = "True"
-        self.snippet_plonesite = f'<script defer data-domain="plonesite.kamoulox.be" src="https://plonesite.plausible.be/js/script.js"></script>'
-        self.iframe_plonesite = f'<iframe plausible-embed src="https://plonesite.plausible.be/share/plonesite.kamoulox.be?auth=plonesitetoken123&amp;embed=true&amp;theme=light&amp;background=transparent" scrolling="no" frameborder="0" loading="lazy" id="plausible" style="width: 1px; min-width: 100%; height: 1600px;">'
+        self.portal.plausible_enabled = True
+        self.portal.plausible_url = "plonesite.plausible.be"
+        self.portal.plausible_site = "plonesite.kamoulox.be"
+        self.portal.plausible_token = "plonesitetoken123"
+        self.portal.plausible_link_object_action = "True"
+        self.snippet_plonesite = '<script defer="" src="https://plonesite.plausible.be/js/script.js" data-domain="plonesite.kamoulox.be" ></script>'
+        self.iframe_plonesite = '<iframe id="plausible" frameborder="0" loading="lazy" plausible-embed="" scrolling="no" src="https://plonesite.plausible.be/share/plonesite.kamoulox.be?auth=plonesitetoken123&amp;embed=true&amp;theme=light&amp;background=transparent" style="width: 1px; min-width: 100%; height: 1600px;" >'
 
         self.portal["folder"].plausible_enabled = True
         self.portal["folder"].plausible_url = "folder.plausible.be"
         self.portal["folder"].plausible_site = "folder.kamoulox.be"
         self.portal["folder"].plausible_token = "foldertoken123"
         self.portal["folder"].plausible_link_object_action = "True"
-        self.snippet_folder = f'<script defer data-domain="folder.kamoulox.be" src="https://folder.plausible.be/js/script.js"></script>'
-        self.iframe_folder = f'<iframe plausible-embed src="https://folder.plausible.be/share/folder.kamoulox.be?auth=foldertoken123&amp;embed=true&amp;theme=light&amp;background=transparent" scrolling="no" frameborder="0" loading="lazy" id="plausible" style="width: 1px; min-width: 100%; height: 1600px;">'
+        self.snippet_folder = '<script defer="" src="https://folder.plausible.be/js/script.js" data-domain="folder.kamoulox.be" ></script>'
+        self.iframe_folder = '<iframe id="plausible" frameborder="0" loading="lazy" plausible-embed="" scrolling="no" src="https://folder.plausible.be/share/folder.kamoulox.be?auth=foldertoken123&amp;embed=true&amp;theme=light&amp;background=transparent" style="width: 1px; min-width: 100%; height: 1600px;" >'
 
         self.portal["folder2"].plausible_enabled = False
         self.portal["folder2"].plausible_url = "folder2.plausible.be"
         self.portal["folder2"].plausible_site = "folder2.kamoulox.be"
         self.portal["folder2"].plausible_token = "folder2token123"
         self.portal["folder2"].plausible_link_object_action = "True"
-        self.iframe_folder2 = f'<iframe plausible-embed src="https://plonesite.plausible.be/share/plonesite.kamoulox.be?auth=plonesitetoken123&amp;embed=true&amp;theme=light&amp;background=transparent" scrolling="no" frameborder="0" loading="lazy" id="plausible" style="width: 1px; min-width: 100%; height: 1600px;">'
+        self.iframe_folder2 = '<iframe id="plausible" frameborder="0" loading="lazy" plausible-embed="" scrolling="no" src="https://plonesite.plausible.be/share/plonesite.kamoulox.be?auth=plonesitetoken123&amp;embed=true&amp;theme=light&amp;background=transparent" style="width: 1px; min-width: 100%; height: 1600px;" >'
 
         self.portal["folder"]["subfolder"].plausible_enabled = True
         self.portal["folder"]["subfolder"].plausible_url = "subfolder.plausible.be"
         self.portal["folder"]["subfolder"].plausible_site = "subfolder.kamoulox.be"
         self.portal["folder"]["subfolder"].plausible_token = "subfoldertoken123"
         self.portal["folder"]["subfolder"].plausible_link_object_action = "True"
-        self.snippet_subfolder = f'<script defer data-domain="subfolder.kamoulox.be" src="https://subfolder.plausible.be/js/script.js"></script>'
-        self.iframe_subfolder = f'<iframe plausible-embed src="https://subfolder.plausible.be/share/subfolder.kamoulox.be?auth=subfoldertoken123&amp;embed=true&amp;theme=light&amp;background=transparent" scrolling="no" frameborder="0" loading="lazy" id="plausible" style="width: 1px; min-width: 100%; height: 1600px;">'
+        self.snippet_subfolder = '<script defer="" src="https://subfolder.plausible.be/js/script.js" data-domain="subfolder.kamoulox.be" ></script>'
+        self.iframe_subfolder = '<iframe id="plausible" frameborder="0" loading="lazy" plausible-embed="" scrolling="no" src="https://subfolder.plausible.be/share/subfolder.kamoulox.be?auth=subfoldertoken123&amp;embed=true&amp;theme=light&amp;background=transparent" style="width: 1px; min-width: 100%; height: 1600px;" >'
 
         self.portal["folder"]["subfolder2"].plausible_enabled = False
         self.portal["folder"]["subfolder2"].plausible_url = "subfolder2.plausible.be"
         self.portal["folder"]["subfolder2"].plausible_site = "subfolder2.kamoulox.be"
-        self.iframe_subfolder2 = f'<iframe plausible-embed src="https://folder.plausible.be/share/folder.kamoulox.be?auth=foldertoken123&amp;embed=true&amp;theme=light&amp;background=transparent" scrolling="no" frameborder="0" loading="lazy" id="plausible" style="width: 1px; min-width: 100%; height: 1600px;">'
+        self.iframe_subfolder2 = '<iframe id="plausible" frameborder="0" loading="lazy" plausible-embed="" scrolling="no" src="https://folder.plausible.be/share/folder.kamoulox.be?auth=foldertoken123&amp;embed=true&amp;theme=light&amp;background=transparent" style="width: 1px; min-width: 100%; height: 1600px;" >'
 
     def test_plausible_fields_testing_profile(self):
         self.assertFalse(IPlausibleFieldsMarker.providedBy(self.portal["document"]))
         self.assertTrue(IPlausibleFieldsMarker.providedBy(self.portal["folder"]))
-        if HAS_PLONE6:
-            self.assertTrue(IPlausibleFieldsMarker.providedBy(self.portal))
+        self.assertTrue(IPlausibleFieldsMarker.providedBy(self.portal))
 
     def test_plausible_fields_behavior_fields(self):
 
-        if HAS_PLONE6:
-            # portal fields
-            self.assertTrue(getattr(self.portal, "plausible_enabled", False))
-            self.assertEqual(
-                getattr(self.portal, "plausible_url"), "plonesite.plausible.be"
-            )
-            self.assertEqual(
-                getattr(self.portal, "plausible_site"), "plonesite.kamoulox.be"
-            )
-            self.assertEqual(
-                getattr(self.portal, "plausible_token"), "plonesitetoken123"
-            )
-            self.assertTrue(getattr(self.portal, "plausible_link_object_action", False))
+        # portal fields
+        self.assertTrue(getattr(self.portal, "plausible_enabled", False))
+        self.assertEqual(
+            getattr(self.portal, "plausible_url"), "plonesite.plausible.be"
+        )
+        self.assertEqual(
+            getattr(self.portal, "plausible_site"), "plonesite.kamoulox.be"
+        )
+        self.assertEqual(getattr(self.portal, "plausible_token"), "plonesitetoken123")
+        self.assertTrue(getattr(self.portal, "plausible_link_object_action", False))
 
         # folder fields
         self.assertTrue(getattr(self.portal["folder"], "plausible_enabled", False))
@@ -162,8 +154,7 @@ class PlausibleFieldsIntegrationTest(unittest.TestCase):
 
     def test_plausible_fields_behavior_traversing(self):
 
-        if HAS_PLONE6:
-            self.assertIn(self.snippet_plonesite, self.portal())
+        self.assertIn(self.snippet_plonesite, self.portal())
 
         uid = self.portal["folder"].UID()
         folder = api.content.get(UID=uid)
@@ -191,38 +182,31 @@ class PlausibleFieldsIntegrationTest(unittest.TestCase):
 
         uid = self.portal["folder2"]["document"].UID()
         document_in_folder2 = api.content.get(UID=uid)
-        if HAS_PLONE6:
-            self.assertIn(self.snippet_plonesite, document_in_folder2())
-        else:
-            self.assertNotIn(self.snippet_plonesite, document_in_folder2())
+        self.assertIn(self.snippet_plonesite, document_in_folder2())
 
         uid = self.portal["folder2"]["subfolder"].UID()
         subfolder = api.content.get(UID=uid)
-        if HAS_PLONE6:
-            self.assertIn(self.snippet_plonesite, subfolder())
-        else:
-            self.assertNotIn(self.snippet_plonesite, subfolder())
+        self.assertIn(self.snippet_plonesite, subfolder())
 
-        if HAS_PLONE6:
-            # disabling behavior on plone site
-            fti = queryUtility(IDexterityFTI, name="Plone Site")
-            behaviors = list(fti.behaviors)
-            behaviors.remove("collective.plausible.plausible_fields")
-            fti._updateProperty("behaviors", tuple(behaviors))
-            for property in [
-                "plausible_enabled",
-                "plausible_url",
-                "plausible_site",
-                "plausible_token",
-                "plausible_link_object_action",
-            ]:
-                setattr(self.portal, property, None)
-            for snippet in [
-                self.snippet_plonesite,
-                self.snippet_folder,
-                self.snippet_subfolder,
-            ]:
-                self.assertNotIn(snippet, self.portal())
+        # disabling behavior on plone site
+        fti = queryUtility(IDexterityFTI, name="Plone Site")
+        behaviors = list(fti.behaviors)
+        behaviors.remove("collective.plausible.plausible_fields")
+        fti._updateProperty("behaviors", tuple(behaviors))
+        for property in [
+            "plausible_enabled",
+            "plausible_url",
+            "plausible_site",
+            "plausible_token",
+            "plausible_link_object_action",
+        ]:
+            setattr(self.portal, property, None)
+        for snippet in [
+            self.snippet_plonesite,
+            self.snippet_folder,
+            self.snippet_subfolder,
+        ]:
+            self.assertNotIn(snippet, self.portal())
 
         uid = self.portal["folder2"]["subfolder"].UID()
         subfolder = api.content.get(UID=uid)
@@ -239,24 +223,18 @@ class PlausibleFieldsIntegrationTest(unittest.TestCase):
         view_subfolder3 = PlausibleView(
             self.portal["folder2"]["subfolder"], self.request
         )
-        if HAS_PLONE6:
-            self.assertIn(self.iframe_plonesite, view_plonesite())
+        self.assertIn(self.iframe_plonesite, view_plonesite())
         self.assertIn(self.iframe_folder, view_folder())
         self.assertIn(self.iframe_subfolder, view_subfolder())
         self.assertIn(self.iframe_folder, view_subfolder2())
-        if HAS_PLONE6:
-            self.assertIn(self.iframe_plonesite, view_folder2())
-            self.assertIn(self.iframe_plonesite, view_subfolder3())
-        else:
-            self.assertNotIn(self.iframe_plonesite, view_folder2())
-            self.assertNotIn(self.iframe_plonesite, view_subfolder3())
+        self.assertIn(self.iframe_plonesite, view_folder2())
+        self.assertIn(self.iframe_plonesite, view_subfolder3())
 
     def test_plausible_object_action(self):
 
-        if HAS_PLONE6:
-            self.assertTrue(
-                get_plausible_infos(self.portal)["plausible_link_object_action"]
-            )
+        self.assertTrue(
+            get_plausible_infos(self.portal)["plausible_link_object_action"]
+        )
 
         self.assertTrue(
             get_plausible_infos(self.portal["folder"])["plausible_link_object_action"]
@@ -274,48 +252,32 @@ class PlausibleFieldsIntegrationTest(unittest.TestCase):
             ]
         )
 
-        if HAS_PLONE6:
-            self.assertTrue(
-                get_plausible_infos(self.portal["folder2"])[
-                    "plausible_link_object_action"
-                ]
-            )
-            self.assertTrue(
-                get_plausible_infos(self.portal["folder2"]["subfolder"])[
-                    "plausible_link_object_action"
-                ]
-            )
-        else:
-            self.assertFalse(
-                get_plausible_infos(self.portal["folder2"])[
-                    "plausible_link_object_action"
-                ]
-            )
-            self.assertFalse(
-                get_plausible_infos(self.portal["folder2"]["subfolder"])[
-                    "plausible_link_object_action"
-                ]
-            )
+        self.assertTrue(
+            get_plausible_infos(self.portal["folder2"])["plausible_link_object_action"]
+        )
+        self.assertTrue(
+            get_plausible_infos(self.portal["folder2"]["subfolder"])[
+                "plausible_link_object_action"
+            ]
+        )
 
-        if HAS_PLONE6:
-            # disabling behavior on plone site
-            fti = queryUtility(IDexterityFTI, name="Plone Site")
-            behaviors = list(fti.behaviors)
-            behaviors.remove("collective.plausible.plausible_fields")
-            fti._updateProperty("behaviors", tuple(behaviors))
-            for property in [
-                "plausible_enabled",
-                "plausible_url",
-                "plausible_site",
-                "plausible_token",
-                "plausible_link_object_action",
-            ]:
-                setattr(self.portal, property, None)
+        # disabling behavior on plone site
+        fti = queryUtility(IDexterityFTI, name="Plone Site")
+        behaviors = list(fti.behaviors)
+        behaviors.remove("collective.plausible.plausible_fields")
+        fti._updateProperty("behaviors", tuple(behaviors))
+        for property in [
+            "plausible_enabled",
+            "plausible_url",
+            "plausible_site",
+            "plausible_token",
+            "plausible_link_object_action",
+        ]:
+            setattr(self.portal, property, None)
 
-        if HAS_PLONE6:
-            self.assertFalse(
-                get_plausible_infos(self.portal)["plausible_link_object_action"]
-            )
+        self.assertFalse(
+            get_plausible_infos(self.portal)["plausible_link_object_action"]
+        )
 
         self.assertTrue(
             get_plausible_infos(self.portal["folder"])["plausible_link_object_action"]

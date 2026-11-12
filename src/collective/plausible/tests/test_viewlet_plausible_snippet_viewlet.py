@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from collective.plausible.interfaces import ICollectivePlausibleLayer
 from collective.plausible.testing import COLLECTIVE_PLAUSIBLE_FUNCTIONAL_TESTING
 from collective.plausible.testing import COLLECTIVE_PLAUSIBLE_INTEGRATION_TESTING

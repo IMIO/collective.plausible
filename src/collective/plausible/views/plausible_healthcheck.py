@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
-
 from collective.plausible.utils import get_plausible_infos
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.interface import implementer
 from zope.interface import Interface
+
 import requests
 
 
@@ -32,5 +31,5 @@ class PlausibleHealthcheckView(BrowserView):
                 f"https://{vars.get('plausible_url', '')}/api/health"
             )
             return response.json()
-        except:
+        except Exception:
             return False

@@ -1,13 +1,9 @@
-# -*- coding: utf-8 -*-
 from collective.plausible.testing import COLLECTIVE_PLAUSIBLE_FUNCTIONAL_TESTING
 from collective.plausible.views.plausible_healthcheck import PlausibleHealthcheckView
-from collective.plausible.utils import HAS_PLONE6
 from plone import api
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from unittest import mock
-from plone.dexterity.interfaces import IDexterityFTI
-from zope.component import queryUtility
 
 import requests
 import unittest
@@ -64,4 +60,4 @@ class ViewsFunctionalTest(unittest.TestCase):
 
     def test_healthcheck_index(self):
         healthcheck_view = PlausibleHealthcheckView(self.portal["folder"], self.request)
-        self.assertIn("<span>Plausible server healthcheck</span>", healthcheck_view())
+        self.assertIn("<span >Plausible server healthcheck</span>", healthcheck_view())

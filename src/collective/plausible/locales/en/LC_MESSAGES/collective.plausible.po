@@ -88,7 +88,7 @@ msgid "Plausible analytics is not set"
 msgstr ""
 
 #: ../behaviors/plausible_fields.py:64
-msgid "Plausible authentification token"
+msgid "Plausible authentication token"
 msgstr ""
 
 #: ../behaviors/plausible_fields.py:25

@@ -5,7 +5,10 @@ Changelog
 1.0a7 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Modernize package: Plone 6.1 / 6.2 and Python 3.10 to 3.13 only, PEP 420
+  native namespace, plone.meta, metadata in ``pyproject.toml``, uv Makefile.
+  Drop Plone 5.2 / 6.0 support.
+  [remdub]
 
 
 1.0a6 (2024-03-08)

@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from collective.plausible.utils import get_plausible_infos
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile

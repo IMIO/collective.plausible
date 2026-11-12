@@ -1,8 +1,5 @@
-# -*- coding: utf-8 -*-
-
 from . import logger
 from .base import reload_gs_profile
-from collective.plausible import _
 from plone.registry.interfaces import IRegistry
 from zope.component import getUtility
 

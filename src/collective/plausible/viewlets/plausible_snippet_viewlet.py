@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from collective.plausible.utils import get_plausible_infos
 from plone.app.layout.viewlets import ViewletBase
 
@@ -26,4 +24,4 @@ class PlausibleSnippetViewlet(ViewletBase):
         return self.plausible_infos["plausible_site"]
 
     def index(self):  # pragma: no cover
-        return super(PlausibleSnippetViewlet, self).render()
+        return super().render()
