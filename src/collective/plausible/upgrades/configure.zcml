@@ -1,8 +1,9 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
-    i18n_domain="collective.plausible">
+    i18n_domain="collective.plausible"
+    >
 
- <!-- -*- extra stuff goes here -*- -->
+  <!-- -*- extra stuff goes here -*- -->
 
   <include file="1001.zcml" />
   <include file="1002.zcml" />

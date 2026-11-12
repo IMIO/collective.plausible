@@ -1,13 +1,15 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
-      xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:metal="http://xml.zope.org/namespaces/metal"
+<html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
       lang="en"
       metal:use-macro="here/prefs_main_template/macros/master"
-      i18n:domain="plone">
+      xml:lang="en"
+      i18n:domain="plone"
+>
 
-<body>
-<style>
+  <body>
+    <style>
     .card {
         position: relative;
         display: flex;
@@ -30,28 +32,32 @@
         flex: 1 1 auto;
         padding: 1rem 1rem;
     }
-</style>
-<div metal:fill-slot="prefs_configlet_main">
+    </style>
+    <div metal:fill-slot="prefs_configlet_main">
 
-    <h1 class="documentFirstHeading" tal:content="view/label">View Title</h1>
+      <h1 class="documentFirstHeading"
+          tal:content="view/label"
+      >View Title</h1>
 
-    <div metal:use-macro="context/global_statusmessage/macros/portal_message">
+      <div metal:use-macro="context/global_statusmessage/macros/portal_message">
       Portal status message
-    </div>
+      </div>
 
-    <div id="content-core">
+      <div id="content-core">
         <div class="card">
-                <h2 i18n:domain="collective.plausible" i18n:translate="">Plausible parameters are defined on content properties</h2>
+          <h2 i18n:domain="collective.plausible"
+              i18n:translate=""
+          >Plausible parameters are defined on content properties</h2>
         </div>
-    <!-- <div class="card">
+        <!-- <div class="card">
         <div class="card-header">
         </div>
         <div id="layout-contents">
             <span tal:replace="structure view/contents" />
         </div>
     </div> -->
-    </div>
+      </div>
 
-</div>
-</body>
+    </div>
+  </body>
 </html>

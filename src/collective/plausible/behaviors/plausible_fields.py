@@ -1,11 +1,9 @@
-# -*- coding: utf-8 -*-
-
 from collective.plausible import _
 from plone import schema
 from plone.autoform.interfaces import IFormFieldProvider
+from plone.base.utils import safe_hasattr
 from plone.supermodel import directives
 from plone.supermodel import model
-from Products.CMFPlone.utils import safe_hasattr
 from zope.component import adapter
 from zope.interface import implementer
 from zope.interface import Interface
@@ -61,7 +59,7 @@ class IPlausibleFields(model.Schema):
 
     plausible_token = schema.TextLine(
         title=_("Plausible token"),
-        description=_("Plausible authentification token"),
+        description=_("Plausible authentication token"),
         default="",
         required=False,
         readonly=False,
@@ -78,7 +76,7 @@ class IPlausibleFields(model.Schema):
 
 @implementer(IPlausibleFields)
 @adapter(IPlausibleFieldsMarker)
-class PlausibleFields(object):  # pragma: no cover
+class PlausibleFields:  # pragma: no cover
     def __init__(self, context):
         self.context = context
 

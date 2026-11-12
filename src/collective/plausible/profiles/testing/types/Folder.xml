@@ -6,7 +6,9 @@
 >
 
   <!-- Enabled behaviors -->
-  <property name="behaviors" purge="false">
+  <property name="behaviors"
+            purge="false"
+  >
     <element value="collective.plausible.plausible_fields" />
   </property>
 

@@ -1,13 +1,9 @@
-# -*- coding: utf-8 -*-
 from collective.plausible.testing import COLLECTIVE_PLAUSIBLE_FUNCTIONAL_TESTING
 from collective.plausible.views.plausible_healthcheck import PlausibleHealthcheckView
-from collective.plausible.utils import HAS_PLONE6
 from plone import api
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from unittest import mock
-from plone.dexterity.interfaces import IDexterityFTI
-from zope.component import queryUtility
 
 import requests
 import unittest
@@ -48,7 +44,9 @@ class ViewsFunctionalTest(unittest.TestCase):
                 "sites_cache": "ok",
             },
         )
-        mock_get.assert_called_once_with("https://folder.plausible.be/api/health")
+        mock_get.assert_called_once_with(
+            "https://folder.plausible.be/api/health", timeout=5
+        )
 
     @mock.patch("requests.get")
     def test_get_plausible_instance_healthcheck_failure(self, mock_get):
@@ -56,12 +54,31 @@ class ViewsFunctionalTest(unittest.TestCase):
         healthcheck_view = PlausibleHealthcheckView(self.portal["folder"], self.request)
         result = healthcheck_view.get_plausible_instance_healthcheck
         self.assertFalse(result)
-        mock_get.assert_called_once_with("https://folder.plausible.be/api/health")
+        mock_get.assert_called_once_with(
+            "https://folder.plausible.be/api/health", timeout=5
+        )
 
     def test_healthcheck_is_plausible_set(self):
         healthcheck_view = PlausibleHealthcheckView(self.portal["folder"], self.request)
         self.assertTrue(healthcheck_view.is_plausible_set)
 
-    def test_healthcheck_index(self):
+    @mock.patch("requests.get")
+    def test_healthcheck_index(self, mock_get):
+        mock_get.return_value.json.return_value = {
+            "clickhouse": "ch-ok",
+            "postgres": "pg-ok",
+            "sites_cache": "sc-ok",
+        }
         healthcheck_view = PlausibleHealthcheckView(self.portal["folder"], self.request)
-        self.assertIn("<span>Plausible server healthcheck</span>", healthcheck_view())
+        page = healthcheck_view()
+        self.assertIn("<span >Plausible server healthcheck</span>", page)
+        for status in ("ch-ok", "pg-ok", "sc-ok"):
+            self.assertIn(status, page)
+        mock_get.assert_called_once()
+
+    @mock.patch("requests.get")
+    def test_healthcheck_index_not_set(self, mock_get):
+        healthcheck_view = PlausibleHealthcheckView(self.portal, self.request)
+        self.assertFalse(healthcheck_view.is_plausible_set)
+        self.assertIn("Plausible fields are not set yet", healthcheck_view())
+        mock_get.assert_not_called()

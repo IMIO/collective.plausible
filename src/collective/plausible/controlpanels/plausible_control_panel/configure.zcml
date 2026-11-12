@@ -3,20 +3,22 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:i18n="http://namespaces.zope.org/i18n"
     xmlns:plone="http://namespaces.plone.org/plone"
-    i18n_domain="collective.plausible">
+    i18n_domain="collective.plausible"
+    >
 
   <browser:page
-    name="plausible_control_panel-controlpanel"
-    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-    class=".controlpanel.PlausibleControlPanelView"
-    layer="collective.plausible.interfaces.ICollectivePlausibleLayer"
-    permission="cmf.ManagePortal"
-    />
+      name="plausible_control_panel-controlpanel"
+      for="plone.base.interfaces.IPloneSiteRoot"
+      class=".controlpanel.PlausibleControlPanelView"
+      permission="cmf.ManagePortal"
+      layer="collective.plausible.interfaces.ICollectivePlausibleLayer"
+      />
 
-  <include package="plone.restapi"  />
+  <include package="plone.restapi" />
   <adapter
-    factory=".controlpanel.PlausibleControlPanelConfigletPanel"
-    name="plausible_control_panel" />
+      factory=".controlpanel.PlausibleControlPanelConfigletPanel"
+      name="plausible_control_panel"
+      />
 
 
 </configure>

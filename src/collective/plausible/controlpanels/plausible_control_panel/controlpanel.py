@@ -1,11 +1,9 @@
-# -*- coding: utf-8 -*-
 from collective.plausible import _
 from collective.plausible.interfaces import ICollectivePlausibleLayer
 from plone.app.registry.browser.controlpanel import RegistryEditForm
 from plone.restapi.controlpanels import RegistryConfigletPanel
 from plone.z3cform import layout
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from zope import schema
 from zope.component import adapter
 from zope.interface import Interface
 

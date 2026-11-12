@@ -1,0 +1,6 @@
+# Configuration for https://github.com/plone/cookiecutter-zope-instance
+
+default_context:
+    initial_user_password: 'admin'
+    # No zcml_package_includes: Plone loads collective.plausible through its
+    # z3c.autoinclude entry point, after the CMF permissions it needs.
