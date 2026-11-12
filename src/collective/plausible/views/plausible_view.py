@@ -1,4 +1,5 @@
 from collective.plausible.utils import get_plausible_infos
+from collective.plausible.utils import is_plausible_set
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.interface import implementer
@@ -19,7 +20,7 @@ class PlausibleView(BrowserView):
 
     @property
     def is_plausible_set(self):
-        return True if get_plausible_infos(self) else False
+        return is_plausible_set(get_plausible_infos(self))
 
     @property
     def get_embedhostjs_src(self):

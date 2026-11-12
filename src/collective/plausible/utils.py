@@ -19,3 +19,12 @@ def get_plausible_infos(content):
             content, "plausible_link_object_action", False
         ),
     }
+
+
+def is_plausible_set(infos):
+    """Plausible is enabled and its server and site are filled in."""
+    return bool(
+        infos["plausible_enabled"]
+        and infos["plausible_url"]
+        and infos["plausible_site"]
+    )

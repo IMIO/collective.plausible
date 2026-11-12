@@ -1,4 +1,5 @@
 from collective.plausible.utils import get_plausible_infos
+from collective.plausible.utils import is_plausible_set
 from plone.app.layout.viewlets import ViewletBase
 
 
@@ -12,7 +13,7 @@ class PlausibleSnippetViewlet(ViewletBase):
         self.is_plausible_enabled = self.get_is_plausible_enabled()
 
     def get_is_plausible_set(self):
-        return True if get_plausible_infos(self) else False
+        return is_plausible_set(self.plausible_infos)
 
     def get_is_plausible_enabled(self):
         return self.plausible_infos["plausible_enabled"]
