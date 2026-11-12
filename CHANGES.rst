@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0a7 (unreleased)
+1.0a7 (2026-11-12)
 ------------------
 
 - Fix: ``@@plausible-view``, ``@@plausible-healthcheck`` and the tracking

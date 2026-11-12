@@ -9,7 +9,7 @@ requires = ["setuptools>=68.2,<83", "wheel"]
 # will be kept by plone.meta
 [project]
 name = "collective.plausible"
-version = "1.0a7.dev0"
+version = "1.0a7"
 description = "Plausible integration into Plone 6 classic UI"
 classifiers = [
     "Development Status :: 3 - Alpha",
